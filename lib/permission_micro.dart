@@ -13,8 +13,6 @@ class PermissionService extends GetxService {
   }
 
   Future<void> requestPermissions() async {
-    // 예시: 여러 권한 요청
     await requestMicrophonePermission();
-    // 필요한 다른 권한도 여기에 추가할 수 있습니다.
   }
 }
