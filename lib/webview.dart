@@ -42,6 +42,9 @@ class _WebViewScreenState extends State<WebViewScreen> {
           LoadRequestParams(uri: Uri.parse('https://www.aero-chat.com/')))
       ..setOnPlatformPermissionRequest((request) => request.grant())
       ..enableZoom(false)
+      ..setOnConsoleMessage((message) {
+        log('WebView Console [${message.level.name}]: ${message.message}');
+      })
       ..addJavaScriptChannel(
         JavaScriptChannelParams(
           name: 'FlutterBridge',

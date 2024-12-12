@@ -1,9 +1,9 @@
+import 'package:aerochat_webview/offline.dart';
+import 'package:aerochat_webview/permission_micro.dart';
+import 'package:aerochat_webview/webview.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:aerochat_webview/permission_micro.dart';
-import 'package:aerochat_webview/offline.dart';
-import 'package:aerochat_webview/webview.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -35,7 +35,8 @@ class _AppState extends State<App> {
       setState(() {
         _isOffline = false;
       });
-      // 권한 요청
+      // 5초 후 권한 요청
+      await Future.delayed(const Duration(seconds: 5));
       await _permissionService.requestPermissions();
     }
   }
